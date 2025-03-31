@@ -1,15 +1,32 @@
+// pipeline {
+//   agent {
+
+//   }
+//   stages {
+//     stage('version') {
+//       steps {
+//         sh 'python3 --version'
+//       }
+//     }
+//     stage('hello') {
+//       steps {
+//         sh 'python3 hello.py'
+//       }
+//     }
+//   }
+// }
+
 pipeline {
-  agent any
-  stages {
-    stage('version') {
-      steps {
-        sh 'python3 --version'
+    agent any
+    stages{
+      stage('build'){
+        agent{
+          docker{
+            image 'python:3.9'
+          }
+        }
       }
     }
-    stage('hello') {
-      steps {
-        sh 'python3 hello.py'
-      }
-    }
-  }
+        
+        
 }

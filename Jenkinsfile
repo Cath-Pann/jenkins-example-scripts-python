@@ -20,11 +20,17 @@ pipeline {
     agent any
     stages{
       stage('build'){
-        agent{
-          docker{
+        agent {
+          docker {
             image 'python:3.9'
           }
         }
+        steps {
+                sh'''
+                    python --version
+
+                '''
+            }
       }
     }
         

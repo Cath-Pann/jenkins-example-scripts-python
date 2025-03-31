@@ -33,12 +33,16 @@ pipeline {
             }
       }
       stage ('hello'){
+        agent {
+          docker {
+            image 'python:3.9'
+          }
+        }
         steps {
           sh 'python3 hello.py'
         }
       }
     
     }
-        
-        
+             
 }
